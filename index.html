@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>GlobalPaint</title>
+  <link rel="icon" type="image/x-icon" href="static/images/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$'], ['\\(','\\)']],
+	        processEscapes: true
+	    }
+	});
+    </script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="xtitle is-1 publication-title" style="font-size: 45px;">GlobalPaint: Spatiotemporal Coherent Video Outpainting with
+                Global Feature Guidance</h1>
+            <div class="is-size-5 publication-authors">
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="hero teaser">
+<div class="is-max-desktop">
+
+<section class="section hero is-light" style='background-color: white'>
+  <div class="container is-max-desktop" >
+    <div class="columns is-centered has-text-centered" >
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video outpainting, the process of filling in missing regions at the edges of videos based on existing context, poses substantial challenges in maintaining both local and global coherence. In this paper, we introduce GlobalPaint, a novel approach for video outpainting. GlobalPaint adopts a hierarchical processing framework and employs a diffusion-based model enriched with Enhanced Spatiotemporal (EST) modules and guided by global features. Our EST modules extend pretrained spatial layers by incorporating 3D windowed attention layers alongside conventional 1D temporal layers, ensuring seamless frame transitions for local coherence. To enhance global coherence, GlobalPaint efficiently distills OpenCLIP features into manageable global features, integrating them into the outpainting process through cross-attention operations. Comprehensive evaluations on benchmark datasets demonstrate that GlobalPaint surpasses state-of-the-art models in terms of both image quality and motion naturalness. This work establishes a new benchmark in video outpainting, pushing the boundaries of the state-of-the-art in this field.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .gif-row {
+    display: flex; /* Establishes a flex container */
+    align-items: center; /* Centers items vertically within their container */
+    justify-content: space-around; /* Distributes extra space around items */
+    width: 100%; /* Ensures the row takes full width */
+  }
+  
+  .gif-cell {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+  }
+  
+  .gif-cell img {
+    width: 200px; /* Adjust width as needed */
+    margin-bottom: 10px; /* Adds some space between the GIF and the text */
+  }
+
+  .uniform-height-gif-cell {
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+      height: 200px; 
+  }
+  
+  .uniform-height-gif-cell img {
+      max-height: 100%; 
+      width: auto; 
+      margin-bottom: 10px; 
+  }
+
+  
+</style>
+
+<div id="results" style='background-color: rgb(243, 242, 242)'>
+  <br>
+  <h2 class="tldr" style="font-size: 26px;">Demo Results</h2>
+  <div class="gif-row">
+    <div class="uniform-height-gif-cell" style="height: 320px; margin-left: 120px;">
+      <img src="assets/ori_mask/animation-0004.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="uniform-height-gif-cell" style="height: 320px;">
+      <img src="assets/results/animation-0004.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+  </div>
+  <br><br>
+  <div class="gif-row">
+    <div class="uniform-height-gif-cell" style="height: 320px;">
+      <img src="assets/ori_mask/animation-0012.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="uniform-height-gif-cell" style="height: 640px; margin-right: 80px">
+      <img src="assets/results/animation-0012.gif" X>
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+  </div>
+  <br><br>
+  <div class="gif-row">
+    <div class="uniform-height-gif-cell" style="height: 320px;">
+      <img src="assets/ori_mask/animation-0008.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="uniform-height-gif-cell" style="height: 320px; margin-right: 80px">
+      <img src="assets/results/animation-0008.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+  </div>
+  <br><br>
+
+  <br><br>
+  <div class="gif-row">
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/ori_mask/animation-0001.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/results/animation-0001.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/ori_mask/animation-0000.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/results/animation-0000.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+  </div>
+  <br><br>
+  <div class="gif-row">
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/ori_mask/animation-0003.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/results/animation-0003.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/ori_mask/animation-0002.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell" style="width: 320px;">
+      <img src="assets/results/animation-0002.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Outpainted by GlobalPaint</div>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+
+
+<div id="results" style='background-color: rgb(243, 242, 242)'>
+  <br>
+  <h2 class="tldr" style="font-size: 26px;">Comparison </h2>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0007.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/m3ddm-0007.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">M3DDM</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0007.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0013.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/m3ddm-0013.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">M3DDM</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0013.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0014.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/m3ddm-0014.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">M3DDM</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0014.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0010.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/m3ddm-0010.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">M3DDM</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0010.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0009.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/magicedit-0009.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">MagicEdit</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0009.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0011.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/magicedit-0011.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">MagicEdit</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0011.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  
+  <br>
+</div>
+
+<div id="results" style='background-color: rgb(243, 242, 242)'>
+  <br>
+  <h2 class="tldr" style="font-size: 26px;">Ablation Study </h2>
+  <div class="gif-row">
+    <div class="gif-cell", style="width: 320px;">
+      <img src="assets/ori_mask/animation-0015.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell",style="width: 320px;">
+      <img src="assets/results/animation-0015.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Baseline</div>
+    </div>
+    <div class="gif-cell",style="width: 320px;">
+      <img src="assets/results/animation-0016.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">EST(Enhanced Spatial-Temporal modules)</div>
+    </div>
+    <div class="gif-cell",style="width: 320px;">
+      <img src="assets/results/animation-0017.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">GlobalPaint</div>
+    </div>
+  </div>
+  <br>
+  <div class="gif-row">
+    <div class="gif-cell">
+      <img src="assets/ori_mask/animation-0005.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Source Video</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0006.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Sequential</div>
+    </div>
+    <div class="gif-cell">
+      <img src="assets/results/animation-0005.gif">
+      <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">Hierarchical</div>
+    </div>
+  </div>
+
+  <br>
+</div>
+
+
+  </body>
+
+  </html>
